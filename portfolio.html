@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio · semantic & media</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+        background: #faf9fc;
+        color: #1e1b24;
+        line-height: 1.5;
+        padding: 1.5rem;
+      }
+      .portfolio {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 2rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        padding: 2rem 2.5rem;
+      }
+      .navbar {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.8rem;
+        padding: 1rem 0 1.5rem;
+        border-bottom: 2px solid #e9e4f0;
+        margin-bottom: 2.5rem;
+      }
+      .navbar .logo {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: #6a3f9a;
+        color: white;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        border-bottom: none !important;
+        transition: background 0.2s;
+      }
+      .navbar .logo:hover {
+        background: #d8cae9;
+        border-bottom: none !important;
+      }
+      .navbar a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #3b2e4a;
+        padding: 0.35rem 0.2rem;
+        border-bottom: 2px solid transparent;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+        font-size: 1.1rem;
+      }
+      .navbar a:hover {
+        border-bottom-color: #b38fdd;
+        color: #6a3f9a;
+      }
+      section {
+        margin-bottom: 3.5rem;
+        scroll-margin-top: 1rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 2rem;
+        color: #6a3f9a;
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.9rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+        color: #2d1e3a;
+        border-left: 8px solid #b38fdd;
+        padding-left: 1rem;
+      }
+      .about p {
+        font-size: 1.15rem;
+        max-width: 70ch;
+        background: #f5f1fb;
+        padding: 1.8rem 2rem;
+        border-radius: 1.8rem;
+        margin-bottom: 1.2rem;
+      }
+      .about a {
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .work-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fcfaff;
+        border-radius: 1.2rem;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      }
+      .work-table th,
+      .work-table td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid #e3d9ee;
+      }
+      .work-table th {
+        background: #e6dcf3;
+        color: #2f1f3f;
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .work-table tr:last-child td {
+        border-bottom: none;
+      }
+      .work-table td {
+        background: #fefcff;
+      }
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (max-width: 700px) {
+        .resume-grid {
+          grid-template-columns: 1fr;
+          gap: 1.8rem;
+        }
+      }
+      .resume-list {
+        background: #f5f1fb;
+        padding: 1.8rem 2rem;
+        border-radius: 1.8rem;
+        list-style: none;
+      }
+      .resume-list li {
+        padding: 0.7rem 0 0.7rem 1.8rem;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%236a3f9a"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>')
+          left center no-repeat;
+        background-size: 1.2rem;
+        border-bottom: 1px solid #e3d9ee;
+        font-size: 1.05rem;
+      }
+      .resume-list li:last-child {
+        border-bottom: none;
+      }
+      .media-box {
+        background: #f5f1fb;
+        padding: 1.5rem;
+        border-radius: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .media-box video,
+      .media-box audio {
+        width: 100%;
+        border-radius: 1rem;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+        background: #ddd2eb;
+      }
+      .media-box figcaption {
+        font-size: 0.9rem;
+        color: #4a385a;
+        text-align: center;
+        font-style: italic;
+      }
+      .contact-form {
+        background: #f5f1fb;
+        padding: 2.2rem 2.5rem;
+        border-radius: 2rem;
+        max-width: 750px;
+      }
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+      .form-group {
+        flex: 1 1 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      .form-group label {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #3b2e4a;
+      }
+      .form-group input,
+      .form-group textarea {
+        background: white;
+        border: 1.5px solid #d9cbeb;
+        border-radius: 2rem;
+        padding: 0.8rem 1.3rem;
+        font-size: 1rem;
+        font-family: inherit;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        width: 100%;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #b38fdd;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(179, 143, 221, 0.25);
+      }
+      .form-group textarea {
+        border-radius: 1.5rem;
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+      .form-actions button {
+        background: #6a3f9a;
+        color: white;
+        border: none;
+        padding: 0.9rem 2.2rem;
+        border-radius: 3rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        box-shadow: 0 6px 12px rgba(106, 63, 154, 0.2);
+      }
+      .form-actions button:hover {
+        background: #512f7a;
+      }
+      .form-actions button[type="reset"] {
+        background: #e6dcf3;
+        color: #2d1e3a;
+        box-shadow: none;
+      }
+      .form-actions button[type="reset"]:hover {
+        background: #d6c8e9;
+      }
+      .page-footer {
+        margin-top: 3rem;
+        border-top: 2px solid #e9e4f0;
+        padding-top: 2rem;
+        text-align: center;
+        color: #5f4a72;
+        font-size: 1rem;
+      }
+      .page-footer a {
+        color: #6a3f9a;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .page-footer a:hover {
+        text-decoration: underline;
+      }
+      .note {
+        font-size: 0.9rem;
+        color: #7a6690;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="portfolio">
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="#home" class="logo" aria-label="Mohamed Tajouri – home">MT</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <h1>Mohamed Tajouri - Portfolio</h1>
+      <section id="home" style="margin-bottom: 0.5rem">
+        <h2>🏡 Home</h2>
+        <p
+          style="
+            font-size: 1.2rem;
+            background: #f5f1fb;
+            padding: 1.8rem 2rem;
+            border-radius: 1.8rem;
+          "
+        >
+          Welcome to my creative portfolio. I’m Mohamed, a full-stack web
+          developer. This page uses <strong>semantic HTML5</strong>, local
+          links, a table, a list, a contact form, and embedded media (video &
+          audio) and this work is generated using AI. <br />Enjoy your visit!
+        </p>
+      </section>
+
+      <section id="about">
+        <h2>📖 About</h2>
+        <div class="about">
+          <p>
+            I’m a self‑taught web developer who loves clean code and minimal
+            design. I’m currently deepening my knowledge of HTML5 semantics,
+            CSS3 layouts, and accessibility. I believe in learning by building —
+            this portfolio is my checkpoint project. When I’m not coding, I
+            enjoy watching movies, reading some stuff on the internet and
+            playing the football.
+          </p>
+          <p class="note">
+            ⚡ Quick local links: <a href="#work">Jump to Work</a> ·
+            <a href="#resume">See Resume</a> ·
+            <a href="#contact">Contact me</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="work">
+        <h2>💼 Work</h2>
+
+        <table class="work-table">
+          <caption
+            style="
+              text-align: left;
+              margin-bottom: 0.8rem;
+              font-weight: 500;
+              color: #4a385a;
+            "
+          >
+            Recent projects (2024 – 2025)
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Role</th>
+              <th scope="col">Year</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>EcoTracker</strong></td>
+              <td>Front‑end & UI</td>
+              <td>2025</td>
+              <td><a href="#" aria-label="EcoTracker project">demo ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>TypeCast</strong></td>
+              <td>Design & CSS</td>
+              <td>2024</td>
+              <td><a href="#" aria-label="TypeCast project">demo ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>Portfolio v1</strong></td>
+              <td>HTML/CSS</td>
+              <td>2024</td>
+              <td><a href="#" aria-label="Portfolio project">demo ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>AudioSynth</strong></td>
+              <td>Web Audio API</td>
+              <td>2025</td>
+              <td><a href="#" aria-label="AudioSynth project">demo ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="resume">
+        <h2>📄 Resume</h2>
+        <div class="resume-grid">
+          <ul class="resume-list">
+            <li>
+              <strong>Front‑end development</strong> – HTML5, CSS3, JavaScript
+              (ES6)
+            </li>
+            <li>
+              <strong>Responsive & semantic markup</strong> – Accessibility
+              first
+            </li>
+            <li>
+              <strong>Tools</strong> – Git, VS Code, Figma, Chrome DevTools
+            </li>
+            <li>
+              <strong>Certifications</strong> – Responsive Web Design
+              (freeCodeCamp)
+            </li>
+            <li>
+              <strong>Languages</strong> – English (fluent), Spanish (basic)
+            </li>
+          </ul>
+          <figure class="media-box">
+            <video
+              controls
+              width="100%"
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e6dcf3'/%3E%3Ctext x='50%' y='50%' font-family='system-ui' font-size='16' fill='%236a3f9a' text-anchor='middle' dy='.3em'%3E🎬 Demo video (sample)%3C/text%3E%3C/svg%3E"
+              style="border-radius: 1rem"
+            >
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.ogg"
+                type="video/ogg"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>
+              🎥 Big Buck Bunny (sample video) — shown as a placeholder
+            </figcaption>
+
+            <audio controls style="width: 100%">
+              <source
+                src="https://www.w3schools.com/html/horse.ogg"
+                type="audio/ogg"
+              />
+              <source
+                src="https://www.w3schools.com/html/horse.mp3"
+                type="audio/mpeg"
+              />
+              Your browser does not support the audio element.
+            </audio>
+            <figcaption>🎵 Audio sample: “Horse” (w3schools)</figcaption>
+          </figure>
+        </div>
+        <p style="margin-top: 1.5rem">
+          <a href="#" style="font-weight: 600">⬇ Download full CV (PDF)</a>
+          (local dummy link)
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>📬 Contact</h2>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="full name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email address"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Project inquiry"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+216 22 222 222"
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.8rem">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell me about your idea…"
+              required
+            ></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit">Send message</button>
+            <button type="reset">Clear form</button>
+          </div>
+        </form>
+      </section>
+
+      <footer class="page-footer">
+        <p>© 2026 Mohamed Tajouri — portfolio checkpoint</p>
+        <p style="margin-top: 0.5rem">
+          <a href="#home">Home</a> · <a href="#about">About</a> ·
+          <a href="#work">Work</a> · <a href="#resume">Resume</a> ·
+          <a href="#contact">Contact</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
