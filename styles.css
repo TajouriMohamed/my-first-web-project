@@ -79,3 +79,58 @@ p {
   display: flex;
   flex-direction: column;
 }
+
+.about-me {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 2px solid #e2ebf0;
+}
+
+.about-me h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0b2b3b;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-me h2 span {
+  font-size: 1.7rem;
+}
+
+.about-me p {
+  background: #f5f9fc;
+  border: 1px solid #d4e3ec;
+  border-radius: 20px;
+  padding: 1.5rem 1.75rem;
+  font-size: 1.1rem;
+  color: #1f3a4b;
+  line-height: 1.7;
+  margin-top: 0;
+}
+
+.about-me .highlight {
+  font-weight: 600;
+  color: #1a6b6b;
+  background: #e5f2f2;
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Ajustements mobile */
+@media (max-width: 480px) {
+  .carte {
+    padding: 1.75rem 1.25rem;
+  }
+  p {
+    font-size: 1.05rem;
+    padding: 1rem;
+  }
+  .about-me p {
+    padding: 1.25rem;
+  }
+}
