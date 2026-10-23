@@ -1,0 +1,81 @@
+/* --- styles de base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: #486581;
+  color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+/* petit conteneur pour structurer le contenu */
+.carte {
+  max-width: 680px;
+  width: 100%;
+  background: blanchedalmond;
+  padding: 2.5rem 2rem;
+  border-radius: 28px;
+  box-shadow:
+    0 15px 30px -10px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e9e7e4;
+  transition: box-shadow 0.2s;
+}
+
+.carte:hover {
+  box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.12);
+}
+
+/* Titre principal : simple, propre, lisible */
+h1 {
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #0b2b3b;
+  border-left: 6px solid #2c7a7b;
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Paragraphe de test */
+p {
+  font-size: 1.2rem;
+  color: #2d3e50;
+  background: #f2f6f9;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  border: 1px dashed #bdd3df;
+  margin-top: 0.5rem;
+}
+
+/* petit indicateur visuel "exercice" — facultatif mais sympa */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  background: #e2f0f0;
+  color: #1d6b6b;
+  padding: 0.3rem 0.9rem;
+  border-radius: 30px;
+  margin-bottom: 1.2rem;
+  border: 1px solid #c2dede;
+}
+
+/* Optionnel : un petit espace pour le style */
+.exemple {
+  display: flex;
+  flex-direction: column;
+}
